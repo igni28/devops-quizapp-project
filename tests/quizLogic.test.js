@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict")
-const {buildApiUrl, mapApiQuestion, isCorrectAnswer} = require("../quizLogic")
+const {buildApiUrl, mapApiQuestion} = require("../quizLogic")
 
 test("buildApiUrl makes URL for all categories", () => {
   const url = new URL(buildApiUrl("all", "easy", 10));
