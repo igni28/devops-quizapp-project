@@ -48,24 +48,18 @@ document.getElementById("config-next").addEventListener("click", () => {
     alert("An error occurred while fetching questions. Please check your Internet connection and try again.")
   } else {
     // Make the API call with the final selections
-    let url;
-    if (categoryValue === "all") {
-      url = `https://the-trivia-api.com/api/questions?&limit=${limitValue}&region=NG&difficulty=${difficultyValue}`;
-    } else {
-      url = `https://the-trivia-api.com/api/questions?categories=${categoryValue}&limit=${limitValue}&region=NG&difficulty=${difficultyValue}`;
-    }
+    const url = buildApiUrl(
+      categoryValue,
+      difficultyValue,
+      limitValue
+    );
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
         // Clear the quiz array before adding new questions
         quizArray = [];
         for (let i = 0; i < data.length; i++) {
-          const quizObject = {
-            id: data[i].id,
-            question: data[i].question,
-            correct: data[i].correctAnswer,
-            options: [...data[i].incorrectAnswers, data[i].correctAnswer],
-          };
+          const quizObject = mapApiQuestion(data[i]);
           quizArray.push(quizObject);
         }
         // Hide the config page and show the quiz page
@@ -178,7 +172,7 @@ function checker(userOption) {
   let options = question.querySelectorAll(".option-div");
 
   //if user clicked answer == correct option stored in object
-  if (userSolution === quizArray[questionCount].correct) {
+  if ( isCorrectAnswer(userSolution, quizArray[questionCount].correct) ) {
     userOption.classList.add("correct");
     scoreCount++;
   } else {
