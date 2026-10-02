@@ -1,0 +1,23 @@
+{
+  "name": "quizapp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "This is a beautiful, functional and responsive, web-based trivia quiz application that allows users to test their knowledge on select categories of questions. The app is built using HTML, CSS, and JavaScript, and utilizes The Trivia API to generate random questions.",
+  "main": "script.js",
+  "scripts": {
+  "test": "node --test",
+  "check": "node --check script.js && node --check quizLogic.js"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igni28/devops-quizapp-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/igni28/devops-quizapp-project/issues"
+  },
+  "homepage": "https://github.com/igni28/devops-quizapp-project#readme"
+}
