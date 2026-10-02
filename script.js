@@ -14,7 +14,7 @@ let rulesGoBack = document.getElementById("rules-go-back");
 let startButton = document.getElementById("start-button");
 let categoryDiv = document.querySelector(".category");
 let configBack = document.getElementById("config-back");
-let configNext = document.getElementById("config-next");
+//let configNext = document.getElementById("config-next");
 let questionCount;
 let scoreCount = 0;
 let count = 11;
@@ -77,40 +77,39 @@ restart.addEventListener("click", () => {
 
 //Next Button
 //Next Button
-nextBtn.addEventListener(
-  "click",
-  (displayNext = () => {
-    //increment questionCount
-    questionCount += 1;
-    //if last question
-    if (questionCount == quizArray.length) {
-      //hide question container and display score
-      displayContainer.style.display = "none";
-      startScreen.classList.add("hide");
-      scoreContainer.classList.remove("hide");
-      //user score
-      userScore.innerHTML =
-        "Your score: " +
-        scoreCount +
-        "<br> Total score: " +
-        questionCount +
-        " <br> Category: " +
-        document.getElementById("category-select").value +
-        "<br> Difficulty: " +
-        document.getElementById("difficulty-select").value;
-    } else {
-      //display questionCount
-      startScreen.classList.add("hide");
-      countOfQuestion.innerHTML =
-        questionCount + 1 + " of " + quizArray.length + " Questions.";
-      //display quiz
-      quizDisplay(questionCount);
-      count = 11;
-      clearInterval(countdown);
-      timerDisplay();
-    }
-  })
-);
+const displayNext = () => {
+  //increment questionCount
+  questionCount += 1;
+  //if last question
+  if (questionCount == quizArray.length) {
+    //hide question container and display score
+    displayContainer.style.display = "none";
+    startScreen.classList.add("hide");
+    scoreContainer.classList.remove("hide");
+    //user score
+    userScore.innerHTML =
+      "Your score: " +
+      scoreCount +
+      "<br> Total score: " +
+      questionCount +
+      " <br> Category: " +
+      document.getElementById("category-select").value +
+      "<br> Difficulty: " +
+      document.getElementById("difficulty-select").value;
+  } else {
+    //display questionCount
+    startScreen.classList.add("hide");
+    countOfQuestion.innerHTML =
+      questionCount + 1 + " of " + quizArray.length + " Questions.";
+    //display quiz
+    quizDisplay(questionCount);
+    count = 11;
+    clearInterval(countdown);
+    timerDisplay();
+  }
+};
+
+nextBtn.addEventListener("click", displayNext);
 
 //Timer
 const timerDisplay = () => {
@@ -191,7 +190,9 @@ function checker(userOption) {
   options.forEach((element) => {
     element.disabled = true;
   });
-}
+} //*/
+
+window.checker = checker;
 
 //initial setup
 function initial() {
