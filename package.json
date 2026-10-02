@@ -7,7 +7,8 @@
   "scripts": {
     "test": "node --test",
     "check": "node --check script.js && node --check quizLogic.js",
-    "lint": "eslint script.js quizLogic.js tests"
+    "lint": "eslint script.js quizLogic.js tests",
+    "test:e2e": "playwright test"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,9 @@
   "homepage": "https://github.com/igni28/devops-quizapp-project#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.63.0",
     "eslint": "^10.11.0",
-    "globals": "^17.13.0"
+    "globals": "^17.13.0",
+    "http-server": "^14.1.1"
   }
 }
