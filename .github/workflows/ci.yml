@@ -43,3 +43,33 @@ jobs:
           terraform init -backend=false
           terraform fmt -check
           terraform validate
+  
+  llm-quality:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v7
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      
+      - run: npm ci
+
+      - name: Generate questions
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npm run generate:ai
+
+      - name: Run evaluation
+        run: npm run evaluate:ai
+
+      - name: Run LLM judge
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npm run judge:ai
+
