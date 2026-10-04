@@ -10,7 +10,8 @@
     "lint": "eslint script.js quizLogic.js tests",
     "test:e2e": "playwright test",
     "generate:ai": "node llm/generate.mjs",
-    "evaluate:ai": "node llm/evaluate.mjs"
+    "evaluate:ai": "node llm/evaluate.mjs",
+    "judge:ai": "node llm/judge.mjs"
   },
   "repository": {
     "type": "git",

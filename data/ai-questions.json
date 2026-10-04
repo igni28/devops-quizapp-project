@@ -1,6 +1,6 @@
 [
   {
-    "question": "Which chemical element has the highest melting point of all pure elements?",
+    "question": "Which chemical element has the highest melting point of all pure metals?",
     "correctAnswer": "Tungsten",
     "incorrectAnswers": [
       "Iron",
@@ -22,6 +22,28 @@
     "difficulty": "medium"
   },
   {
+    "question": "Which of the Great Lakes is located entirely within the borders of the United States?",
+    "correctAnswer": "Lake Michigan",
+    "incorrectAnswers": [
+      "Lake Huron",
+      "Lake Ontario",
+      "Lake Erie"
+    ],
+    "category": "general knowledge",
+    "difficulty": "medium"
+  },
+  {
+    "question": "Who painted the famous 1893 expressionist artwork 'The Scream'?",
+    "correctAnswer": "Edvard Munch",
+    "incorrectAnswers": [
+      "Vincent van Gogh",
+      "Claude Monet",
+      "Gustav Klimt"
+    ],
+    "category": "general knowledge",
+    "difficulty": "medium"
+  },
+  {
     "question": "What is the capital city of Australia?",
     "correctAnswer": "Canberra",
     "incorrectAnswers": [
@@ -33,78 +55,56 @@
     "difficulty": "medium"
   },
   {
-    "question": "Which artist painted 'The Persistence of Memory', featuring melting clocks?",
-    "correctAnswer": "Salvador Dalí",
+    "question": "Which vitamin is synthesized in the human skin upon exposure to ultraviolet-B radiation?",
+    "correctAnswer": "Vitamin D",
     "incorrectAnswers": [
-      "Pablo Picasso",
-      "René Magritte",
-      "Claude Monet"
+      "Vitamin A",
+      "Vitamin C",
+      "Vitamin E"
     ],
     "category": "general knowledge",
     "difficulty": "medium"
   },
   {
-    "question": "What is the primary ingredient in the traditional Japanese dish Miso soup?",
-    "correctAnswer": "Fermented soybean paste",
+    "question": "Which classical composer wrote the famous 'Moonlight Sonata'?",
+    "correctAnswer": "Ludwig van Beethoven",
     "incorrectAnswers": [
-      "Fish broth",
-      "Rice flour",
-      "Seaweed extract"
+      "Wolfgang Amadeus Mozart",
+      "Johann Sebastian Bach",
+      "Frédéric Chopin"
     ],
     "category": "general knowledge",
     "difficulty": "medium"
   },
   {
-    "question": "How many permanent members are on the United Nations Security Council?",
-    "correctAnswer": "5",
+    "question": "What is the primary language spoken in the South American country of Suriname?",
+    "correctAnswer": "Dutch",
     "incorrectAnswers": [
-      "10",
-      "15",
-      "7"
+      "Spanish",
+      "Portuguese",
+      "French"
     ],
     "category": "general knowledge",
     "difficulty": "medium"
   },
   {
-    "question": "Which planet in our solar system has the most moons?",
-    "correctAnswer": "Saturn",
+    "question": "Which natural satellite in our solar system possesses the thickest atmosphere?",
+    "correctAnswer": "Titan",
     "incorrectAnswers": [
-      "Jupiter",
-      "Uranus",
-      "Neptune"
+      "Europa",
+      "Ganymede",
+      "Io"
     ],
     "category": "general knowledge",
     "difficulty": "medium"
   },
   {
-    "question": "What is the name of the longest river in the world?",
-    "correctAnswer": "Nile",
+    "question": "Which novel by author Herman Melville famously begins with the line 'Call me Ishmael'?",
+    "correctAnswer": "Moby-Dick",
     "incorrectAnswers": [
-      "Amazon",
-      "Yangtze",
-      "Mississippi"
-    ],
-    "category": "general knowledge",
-    "difficulty": "medium"
-  },
-  {
-    "question": "Who wrote the dystopian novel 'Brave New World'?",
-    "correctAnswer": "Aldous Huxley",
-    "incorrectAnswers": [
-      "George Orwell",
-      "Ray Bradbury",
-      "H.G. Wells"
-    ],
-    "category": "general knowledge",
-    "difficulty": "medium"
-  },
-  {
-    "question": "What currency is used in the nation of Sweden?",
-    "correctAnswer": "Krona",
-    "incorrectAnswers": [
-      "Euro",
-      "Krone",
-      "Franc"
+      "The Scarlet Letter",
+      "Treasure Island",
+      "Robinson Crusoe"
     ],
     "category": "general knowledge",
     "difficulty": "medium"
