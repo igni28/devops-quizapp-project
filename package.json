@@ -8,7 +8,9 @@
     "test": "node --test",
     "check": "node --check script.js && node --check quizLogic.js",
     "lint": "eslint script.js quizLogic.js tests",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "generate:ai": "node llm/generate.mjs",
+    "evaluate:ai": "node llm/evaluate.mjs"
   },
   "repository": {
     "type": "git",
@@ -28,5 +30,8 @@
     "eslint": "^10.11.0",
     "globals": "^17.13.0",
     "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "@google/genai": "^2.27.0"
   }
 }

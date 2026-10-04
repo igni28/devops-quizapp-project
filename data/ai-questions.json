@@ -1,0 +1,112 @@
+[
+  {
+    "question": "Which chemical element has the highest melting point of all pure elements?",
+    "correctAnswer": "Tungsten",
+    "incorrectAnswers": [
+      "Iron",
+      "Platinum",
+      "Titanium"
+    ],
+    "category": "general knowledge",
+    "difficulty": "medium"
+  },
+  {
+    "question": "In what year did the construction of the Berlin Wall begin?",
+    "correctAnswer": "1961",
+    "incorrectAnswers": [
+      "1949",
+      "1953",
+      "1968"
+    ],
+    "category": "general knowledge",
+    "difficulty": "medium"
+  },
+  {
+    "question": "What is the capital city of Australia?",
+    "correctAnswer": "Canberra",
+    "incorrectAnswers": [
+      "Sydney",
+      "Melbourne",
+      "Brisbane"
+    ],
+    "category": "general knowledge",
+    "difficulty": "medium"
+  },
+  {
+    "question": "Which artist painted 'The Persistence of Memory', featuring melting clocks?",
+    "correctAnswer": "Salvador Dalí",
+    "incorrectAnswers": [
+      "Pablo Picasso",
+      "René Magritte",
+      "Claude Monet"
+    ],
+    "category": "general knowledge",
+    "difficulty": "medium"
+  },
+  {
+    "question": "What is the primary ingredient in the traditional Japanese dish Miso soup?",
+    "correctAnswer": "Fermented soybean paste",
+    "incorrectAnswers": [
+      "Fish broth",
+      "Rice flour",
+      "Seaweed extract"
+    ],
+    "category": "general knowledge",
+    "difficulty": "medium"
+  },
+  {
+    "question": "How many permanent members are on the United Nations Security Council?",
+    "correctAnswer": "5",
+    "incorrectAnswers": [
+      "10",
+      "15",
+      "7"
+    ],
+    "category": "general knowledge",
+    "difficulty": "medium"
+  },
+  {
+    "question": "Which planet in our solar system has the most moons?",
+    "correctAnswer": "Saturn",
+    "incorrectAnswers": [
+      "Jupiter",
+      "Uranus",
+      "Neptune"
+    ],
+    "category": "general knowledge",
+    "difficulty": "medium"
+  },
+  {
+    "question": "What is the name of the longest river in the world?",
+    "correctAnswer": "Nile",
+    "incorrectAnswers": [
+      "Amazon",
+      "Yangtze",
+      "Mississippi"
+    ],
+    "category": "general knowledge",
+    "difficulty": "medium"
+  },
+  {
+    "question": "Who wrote the dystopian novel 'Brave New World'?",
+    "correctAnswer": "Aldous Huxley",
+    "incorrectAnswers": [
+      "George Orwell",
+      "Ray Bradbury",
+      "H.G. Wells"
+    ],
+    "category": "general knowledge",
+    "difficulty": "medium"
+  },
+  {
+    "question": "What currency is used in the nation of Sweden?",
+    "correctAnswer": "Krona",
+    "incorrectAnswers": [
+      "Euro",
+      "Krone",
+      "Franc"
+    ],
+    "category": "general knowledge",
+    "difficulty": "medium"
+  }
+]
