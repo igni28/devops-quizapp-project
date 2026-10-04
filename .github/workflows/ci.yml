@@ -33,3 +33,13 @@ jobs:
       
       - name: Run integration tests
         run: npm run test:e2e
+      
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Validate Terraform
+        working-directory: infra
+        run: |
+          terraform init -backend=false
+          terraform fmt -check
+          terraform validate
