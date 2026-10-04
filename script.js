@@ -20,10 +20,15 @@ let scoreCount = 0;
 let count = 11;
 let countdown;
 let quizArray = [];
+let quizMode = "ai"
 let categoryValue = "all";
 let difficultyValue = "";
 let limitValue = "";
 
+
+document.getElementById("quiz-mode-select").addEventListener("change", (event) => {
+  quizMode = event.target.value;
+});
 // Add event listener to the category dropdown
 document.getElementById("category-select").addEventListener("change", (event) => {
   categoryValue = event.target.value;

@@ -116,10 +116,18 @@
       <h3>Your Quiz, Your Way</h3>
       <hr />
       <section>
+        <label for="quiz-mode-select">Quiz mode:</label>
+
+        <select id="quiz-mode-select">
+          <option value="ai" selected>AI Generated</option>
+          <option value="classic">Classic</option>
+        </select>
+      </section>
+
+      <section>
         <label for="category-select">Choose a category:</label>
         <select required id="category-select">
-          <option value="">Select...</option>
-          <option value="all">All</option>
+          <option value="all" selected>All</option>
           <option value="arts_and_literature">Arts and Literature</option>
           <option value="film_and_tv">Film and TV</option>
           <option value="food_and_drink">Food and Drink</option>
@@ -136,9 +144,8 @@
       <section>
         <label for="difficulty-select">Difficulty:</label>
         <select required id="difficulty-select">
-          <option value="">Select...</option>
           <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
+          <option value="medium" selected>Medium</option>
           <option value="hard">Hard</option></select
         ><br />
       </section>
@@ -146,8 +153,7 @@
       <section>
         <label for="question-limit-input">Question Limit:</label>
         <select id="question-limit-input">
-          <option value="">Select...</option>
-          <option value="10">10</option>
+          <option value="10" selected>10</option>
           <option value="20">20</option>
           <option value="30">30</option>
           <option value="40">40</option>
