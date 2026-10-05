@@ -97,6 +97,29 @@ For every question:
     });
 
     const result = JSON.parse(response.output_text);
+    
+    const questions = result.questions;
+
+    const validQuestions =
+      Array.isArray(questions) &&
+      questions.length === count &&
+      questions.every((item) => {
+        if (!item.question || !item.correctAnswer) {
+          return false;
+        }
+
+        if (!Array.isArray(item.incorrectAnswers) || tem.incorrectAnswers.length !== 3) {
+          return false;
+        }
+
+        const answers = [item.correctAnswer, ...item.incorrectAnswers,].map((answer) => answer.trim().toLowerCase());
+
+        return new Set(answers).size === 4;
+      });
+
+    if (!validQuestions) {
+      throw new Error("Generated questions failed validation");
+    }
 
     return Response.json(
       {

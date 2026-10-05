@@ -21,10 +21,10 @@ let count = 11;
 let countdown;
 let quizArray = [];
 
-let quizMode = "ai";
-let categoryValue = "all";
-let difficultyValue = "medium";
-let limitValue = "10";
+let quizMode = document.getElementById("quiz-mode-select").value;
+let categoryValue = document.getElementById("category-select").value;
+let difficultyValue = document.getElementById("difficulty-select").value;
+let limitValue = document.getElementById("question-limit-input").value;
 
 
 document
@@ -84,10 +84,23 @@ async function getAiQuestions() {
   }));
 }
 
-document.getElementById("config-next").addEventListener("click", async () => {
+const configNext = document.getElementById("config-next");
+
+configNext.addEventListener("click", async () => {
   if (!navigator.onLine) {
-    alert("An error occurred while fetching questions. Please check your Internet connection and try again.");
+    alert("Please check your Internet connection and try again.");
     return;
+  }
+
+  const originalText = configNext.textContent;
+
+  configNext.disabled = true;
+  configNext.classList.add("loading");
+
+  if (quizMode === "ai") {
+    configNext.textContent = "GENERATING...";
+  } else {
+    configNext.textContent = "LOADING...";
   }
 
   try {
@@ -113,6 +126,11 @@ document.getElementById("config-next").addEventListener("click", async () => {
   } catch (error) {
     console.error(error);
     alert("An error occurred while loading questions.");
+
+  } finally {
+    configNext.disabled = false;
+    configNext.classList.remove("loading");
+    configNext.textContent = originalText;
   }
 });
 

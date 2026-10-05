@@ -375,3 +375,12 @@ input {
   background-color: #c21205;
   color: #ffffff;
 }
+
+#config-next.loading {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+#config-next.loading::after {
+  content: " ⏳";
+}
