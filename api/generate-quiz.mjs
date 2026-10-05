@@ -108,7 +108,7 @@ For every question:
           return false;
         }
 
-        if (!Array.isArray(item.incorrectAnswers) || tem.incorrectAnswers.length !== 3) {
+        if (!Array.isArray(item.incorrectAnswers) || item.incorrectAnswers.length !== 3) {
           return false;
         }
 
