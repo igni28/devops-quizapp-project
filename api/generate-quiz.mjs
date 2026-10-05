@@ -28,6 +28,50 @@ export async function POST(request) {
         ? "any category"
         : category.replaceAll("_", " ");
 
+    const quizSchema = {
+      type: "object",
+      properties: {
+        questions: {
+          type: "array",
+          minItems: count,
+          maxItems: count,
+          items: {
+            type: "object",
+            properties: {
+              question: {
+                type: "string",
+              },
+              correctAnswer: {
+                type: "string",
+              },
+              incorrectAnswers: {
+                type: "array",
+                items: {
+                  type: "string",
+                },
+                minItems: 3,
+                maxItems: 3,
+              },
+              category: {
+                type: "string",
+              },
+              difficulty: {
+                type: "string",
+              },
+            },
+            required: [
+              "question",
+              "correctAnswer",
+              "incorrectAnswers",
+              "category",
+              "difficulty",
+            ],
+          },
+        },
+      },
+      required: ["questions"],
+    };
+
     const prompt = `
 Generate ${count} original trivia quiz questions.
 
@@ -40,34 +84,39 @@ For every question:
 - make all four answers unique
 - avoid ambiguous questions
 - do not reveal the answer in the question
-
-Return ONLY valid JSON in this structure:
-
-{
-  "questions": [
-    {
-      "question": "...",
-      "correctAnswer": "...",
-      "incorrectAnswers": ["...", "...", "..."],
-      "category": "...",
-      "difficulty": "..."
-    }
-  ]
-}
 `;
 
     const response = await ai.interactions.create({
       model: "gemini-3.5-flash-lite",
       input: prompt,
+      response_format: {
+        type: "text",
+        mime_type: "application/json",
+        schema: quizSchema,
+      },
     });
 
-    const cleanJson = response.output_text.trim().replace(/^```json\s*/i, "").replace(/^```\s*/, "").replace(/\s*```$/, "");
+    const result = JSON.parse(response.output_text);
 
-    const result = JSON.parse(cleanJson);
-
-    return Response.json({questions: result.questions,}, {headers: corsHeaders,});
+    return Response.json(
+      {
+        questions: result.questions,
+      },
+      {
+        headers: corsHeaders,
+      }
+    );
   } catch (error) {
     console.error(error);
-    return Response.json({error: "Failed to generate quiz."}, {headers: corsHeaders,});
+
+    return Response.json(
+      {
+        error: "Failed to generate quiz.",
+      },
+      {
+        status: 500,
+        headers: corsHeaders,
+      }
+    );
   }
 }

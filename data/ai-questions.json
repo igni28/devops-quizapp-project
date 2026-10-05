@@ -1,112 +1,112 @@
 [
   {
-    "question": "Which chemical element has the highest melting point of all pure metals?",
+    "question": "Which chemical element has the highest melting point of all pure elements?",
     "correctAnswer": "Tungsten",
     "incorrectAnswers": [
       "Iron",
       "Platinum",
       "Titanium"
     ],
-    "category": "general knowledge",
+    "category": "General Knowledge",
     "difficulty": "medium"
   },
   {
-    "question": "In what year did the construction of the Berlin Wall begin?",
-    "correctAnswer": "1961",
+    "question": "In what year did the World Wide Web first become publicly accessible to the internet?",
+    "correctAnswer": "1991",
     "incorrectAnswers": [
-      "1949",
-      "1953",
-      "1968"
+      "1985",
+      "1995",
+      "1989"
     ],
-    "category": "general knowledge",
+    "category": "General Knowledge",
     "difficulty": "medium"
   },
   {
-    "question": "Which of the Great Lakes is located entirely within the borders of the United States?",
-    "correctAnswer": "Lake Michigan",
+    "question": "What is the primary ingredient in the traditional Portuguese dish known as 'Bacalhau'?",
+    "correctAnswer": "Salted cod",
     "incorrectAnswers": [
-      "Lake Huron",
-      "Lake Ontario",
-      "Lake Erie"
+      "Pork belly",
+      "Octopus",
+      "Sardines"
     ],
-    "category": "general knowledge",
+    "category": "General Knowledge",
     "difficulty": "medium"
   },
   {
-    "question": "Who painted the famous 1893 expressionist artwork 'The Scream'?",
-    "correctAnswer": "Edvard Munch",
+    "question": "Which European country is the origin of the traditional folk dance known as the Czardas?",
+    "correctAnswer": "Hungary",
     "incorrectAnswers": [
-      "Vincent van Gogh",
-      "Claude Monet",
-      "Gustav Klimt"
+      "Romania",
+      "Poland",
+      "Austria"
     ],
-    "category": "general knowledge",
+    "category": "General Knowledge",
     "difficulty": "medium"
   },
   {
-    "question": "What is the capital city of Australia?",
-    "correctAnswer": "Canberra",
+    "question": "What is the name of the largest freshwater lake in the world by volume?",
+    "correctAnswer": "Lake Baikal",
     "incorrectAnswers": [
-      "Sydney",
-      "Melbourne",
-      "Brisbane"
+      "Lake Superior",
+      "Lake Victoria",
+      "Caspian Sea"
     ],
-    "category": "general knowledge",
+    "category": "General Knowledge",
     "difficulty": "medium"
   },
   {
-    "question": "Which vitamin is synthesized in the human skin upon exposure to ultraviolet-B radiation?",
-    "correctAnswer": "Vitamin D",
+    "question": "Which classical composer wrote the famous 'Enigma Variations'?",
+    "correctAnswer": "Edward Elgar",
     "incorrectAnswers": [
-      "Vitamin A",
-      "Vitamin C",
-      "Vitamin E"
+      "Ludwig van Beethoven",
+      "Johannes Brahms",
+      "Pyotr Ilyich Tchaikovsky"
     ],
-    "category": "general knowledge",
+    "category": "General Knowledge",
     "difficulty": "medium"
   },
   {
-    "question": "Which classical composer wrote the famous 'Moonlight Sonata'?",
-    "correctAnswer": "Ludwig van Beethoven",
+    "question": "What is the official currency of the nation of Bhutan?",
+    "correctAnswer": "Ngultrum",
     "incorrectAnswers": [
-      "Wolfgang Amadeus Mozart",
-      "Johann Sebastian Bach",
-      "Frédéric Chopin"
+      "Rupee",
+      "Baht",
+      "Taka"
     ],
-    "category": "general knowledge",
+    "category": "General Knowledge",
     "difficulty": "medium"
   },
   {
-    "question": "What is the primary language spoken in the South American country of Suriname?",
-    "correctAnswer": "Dutch",
+    "question": "Which famous architectural structure was originally built as the entrance arch for the 1889 World's Fair?",
+    "correctAnswer": "Eiffel Tower",
     "incorrectAnswers": [
-      "Spanish",
-      "Portuguese",
-      "French"
+      "Atomium",
+      "Space Needle",
+      "Gateway Arch"
     ],
-    "category": "general knowledge",
+    "category": "General Knowledge",
     "difficulty": "medium"
   },
   {
-    "question": "Which natural satellite in our solar system possesses the thickest atmosphere?",
-    "correctAnswer": "Titan",
+    "question": "What is the term for a group of flamingos?",
+    "correctAnswer": "Flamboyance",
     "incorrectAnswers": [
-      "Europa",
-      "Ganymede",
-      "Io"
+      "Colony",
+      "Prickle",
+      "Skulk"
     ],
-    "category": "general knowledge",
+    "category": "General Knowledge",
     "difficulty": "medium"
   },
   {
-    "question": "Which novel by author Herman Melville famously begins with the line 'Call me Ishmael'?",
-    "correctAnswer": "Moby-Dick",
+    "question": "Which celestial body has a moon named Titan, which is larger than the planet Mercury?",
+    "correctAnswer": "Saturn",
     "incorrectAnswers": [
-      "The Scarlet Letter",
-      "Treasure Island",
-      "Robinson Crusoe"
+      "Jupiter",
+      "Uranus",
+      "Neptune"
     ],
-    "category": "general knowledge",
+    "category": "General Knowledge",
     "difficulty": "medium"
   }
 ]
