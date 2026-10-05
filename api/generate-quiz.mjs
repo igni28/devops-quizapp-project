@@ -130,16 +130,16 @@ For every question:
       }
     );
   } catch (error) {
-    console.error(error);
+      console.error(error);
 
-    return Response.json(
-      {
-        error: "Failed to generate quiz.",
-      },
-      {
-        status: 500,
-        headers: corsHeaders,
-      }
-    );
-  }
+      return Response.json(
+        {
+          error: error.message,
+        },
+        {
+          status: 500,
+          headers: corsHeaders,
+        }
+      );
+    }
 }
