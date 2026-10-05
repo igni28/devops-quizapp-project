@@ -34,6 +34,7 @@ test("classic quiz can be started and moved to the next question", async ({
   await page.locator("#start-button").click();
   await page.locator("#rules-continue").click();
 
+  await page.selectOption("#quiz-mode-select", "classic");
   await page.selectOption("#category-select", "all");
   await page.selectOption("#difficulty-select", "easy");
   await page.selectOption("#question-limit-input", "10");
