@@ -14,66 +14,108 @@ let rulesGoBack = document.getElementById("rules-go-back");
 let startButton = document.getElementById("start-button");
 let categoryDiv = document.querySelector(".category");
 let configBack = document.getElementById("config-back");
-//let configNext = document.getElementById("config-next");
+
 let questionCount;
 let scoreCount = 0;
 let count = 11;
 let countdown;
 let quizArray = [];
-let quizMode = "ai"
+
+let quizMode = "ai";
 let categoryValue = "all";
-let difficultyValue = "";
-let limitValue = "";
+let difficultyValue = "medium";
+let limitValue = "10";
 
 
-document.getElementById("quiz-mode-select").addEventListener("change", (event) => {
-  quizMode = event.target.value;
-});
+document
+  .getElementById("quiz-mode-select")
+  .addEventListener("change", (event) => {
+    quizMode = event.target.value;
+  });
+
 // Add event listener to the category dropdown
-document.getElementById("category-select").addEventListener("change", (event) => {
-  categoryValue = event.target.value;
-});
+document
+  .getElementById("category-select")
+  .addEventListener("change", (event) => {
+    categoryValue = event.target.value;
+  });
 
 // Add event listener to the difficulty dropdown
-document.getElementById("difficulty-select").addEventListener("change", (event) => {
-  difficultyValue = event.target.value;
-});
+document
+  .getElementById("difficulty-select")
+  .addEventListener("change", (event) => {
+    difficultyValue = event.target.value;
+  });
 
 // Add event listener to the question limit dropdown
-document.getElementById("question-limit-input").addEventListener("change", (event) => {
-  limitValue = event.target.value;
-});
+document
+  .getElementById("question-limit-input")
+  .addEventListener("change", (event) => {
+    limitValue = event.target.value;
+  });
 
-// Add event listener to the config page start button
-document.getElementById("config-next").addEventListener("click", () => {
-  if (categoryValue === "" || difficultyValue === "" || limitValue === "") {
-    // Show an error message if any of the selections is empty
-    alert("Please select a value for all the options.");
-  } else if (!navigator.onLine) {
-    alert("An error occurred while fetching questions. Please check your Internet connection and try again.")
-  } else {
-    // Make the API call with the final selections
-    const url = buildApiUrl(
-      categoryValue,
-      difficultyValue,
-      limitValue
-    );
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        // Clear the quiz array before adding new questions
-        quizArray = [];
-        for (let i = 0; i < data.length; i++) {
-          const quizObject = mapApiQuestion(data[i]);
-          quizArray.push(quizObject);
-        }
-        // Hide the config page and show the quiz page
-        categoryDiv.style.display = "none";
-        displayContainer.style.display = "block";
-        initial();
-      });
+async function getAiQuestions() {
+  const response = await fetch(
+    "https://devops-quizapp-project.vercel.app/api/generate-quiz",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        category: categoryValue,
+        difficulty: difficultyValue,
+        count: Number(limitValue),
+      }),
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("AI quiz generation failed");
+  }
+
+  const data = await response.json();
+
+  return data.questions.map((item, index) => ({
+    id: `ai-${index}`,
+    question: item.question,
+    correct: item.correctAnswer,
+    options: [...item.incorrectAnswers, item.correctAnswer],
+  }));
+}
+
+document.getElementById("config-next").addEventListener("click", async () => {
+  if (!navigator.onLine) {
+    alert("An error occurred while fetching questions. Please check your Internet connection and try again.");
+    return;
+  }
+
+  try {
+    if (quizMode === "ai") {
+      quizArray = await getAiQuestions();
+    } else {
+      const url = buildApiUrl(
+        categoryValue,
+        difficultyValue,
+        limitValue
+      );
+
+      const response = await fetch(url);
+      const data = await response.json();
+
+      quizArray = data.map((item) => mapApiQuestion(item));
+    }
+
+    categoryDiv.style.display = "none";
+    displayContainer.style.display = "block";
+    initial();
+
+  } catch (error) {
+    console.error(error);
+    alert("An error occurred while loading questions.");
   }
 });
+
 
 //Restart Quiz
 restart.addEventListener("click", () => {
@@ -81,16 +123,17 @@ restart.addEventListener("click", () => {
 });
 
 //Next Button
-//Next Button
 const displayNext = () => {
   //increment questionCount
   questionCount += 1;
+
   //if last question
   if (questionCount == quizArray.length) {
     //hide question container and display score
     displayContainer.style.display = "none";
     startScreen.classList.add("hide");
     scoreContainer.classList.remove("hide");
+
     //user score
     userScore.innerHTML =
       "Your score: " +
@@ -104,10 +147,13 @@ const displayNext = () => {
   } else {
     //display questionCount
     startScreen.classList.add("hide");
+
     countOfQuestion.innerHTML =
       questionCount + 1 + " of " + quizArray.length + " Questions.";
+
     //display quiz
     quizDisplay(questionCount);
+
     count = 11;
     clearInterval(countdown);
     timerDisplay();
@@ -121,6 +167,7 @@ const timerDisplay = () => {
   countdown = setInterval(() => {
     count--;
     timeLeft.innerHTML = `${count}s`;
+
     if (count == 0) {
       clearInterval(countdown);
       displayNext();
@@ -131,10 +178,12 @@ const timerDisplay = () => {
 //Display quiz
 const quizDisplay = (questionCount) => {
   let quizCards = document.querySelectorAll(".container-mid");
+
   //Hide other cards
   quizCards.forEach((card) => {
     card.classList.add("hide");
   });
+
   //display current question card
   quizCards[questionCount].classList.remove("hide");
 };
@@ -143,27 +192,34 @@ const quizDisplay = (questionCount) => {
 function quizCreator() {
   //randomly sort questions
   quizArray.sort(() => Math.random() - 0.5);
+
   //generate quiz
   for (let i of quizArray) {
     //randomly sort options
     i.options.sort(() => Math.random() - 0.5);
+
     //quiz card creation
     let div = document.createElement("div");
     div.classList.add("container-mid", "hide");
+
     //question number
-    countOfQuestion.innerHTML = 1 + " of " + quizArray.length + " Questions.";
+    countOfQuestion.innerHTML =
+      1 + " of " + quizArray.length + " Questions.";
+
     //question
     let question_DIV = document.createElement("p");
     question_DIV.classList.add("question");
     question_DIV.innerHTML = i.question;
     div.appendChild(question_DIV);
+
     //options
     div.innerHTML += `
     <button class="option-div" onclick="checker(this)">${i.options[0]}</button>
-     <button class="option-div" onclick="checker(this)">${i.options[1]}</button>
-      <button class="option-div" onclick="checker(this)">${i.options[2]}</button>
-       <button class="option-div" onclick="checker(this)">${i.options[3]}</button>
+    <button class="option-div" onclick="checker(this)">${i.options[1]}</button>
+    <button class="option-div" onclick="checker(this)">${i.options[2]}</button>
+    <button class="option-div" onclick="checker(this)">${i.options[3]}</button>
     `;
+
     quizContainer.appendChild(div);
   }
 }
@@ -171,16 +227,19 @@ function quizCreator() {
 //Checker Function to check if option is correct or not
 function checker(userOption) {
   let userSolution = userOption.innerText;
+
   let question =
     document.getElementsByClassName("container-mid")[questionCount];
+
   let options = question.querySelectorAll(".option-div");
 
   //if user clicked answer == correct option stored in object
-  if ( isCorrectAnswer(userSolution, quizArray[questionCount].correct) ) {
+  if (isCorrectAnswer(userSolution, quizArray[questionCount].correct)) {
     userOption.classList.add("correct");
     scoreCount++;
   } else {
     userOption.classList.add("incorrect");
+
     //For marking the correct option
     options.forEach((element) => {
       if (element.innerText == quizArray[questionCount].correct) {
@@ -191,11 +250,12 @@ function checker(userOption) {
 
   //clear interval(stop timer)
   clearInterval(countdown);
+
   //disable all options
   options.forEach((element) => {
     element.disabled = true;
   });
-} //*/
+}
 
 window.checker = checker;
 
@@ -205,7 +265,9 @@ function initial() {
   questionCount = 0;
   scoreCount = 0;
   count = 11;
+
   clearInterval(countdown);
+
   timerDisplay();
   quizCreator();
   quizDisplay(questionCount);
@@ -222,6 +284,7 @@ rulesGoBack.addEventListener("click", () => {
   rulesQuiz.style.display = "none";
   startScreen.classList.remove("hide");
 });
+
 //when user clicks on rules' next button
 rulesContinue.addEventListener("click", () => {
   rulesQuiz.style.display = "none";
@@ -233,13 +296,6 @@ configBack.addEventListener("click", () => {
   categoryDiv.style.display = "none";
   rulesQuiz.style.display = "block";
 });
-
-//when user clicks on config page start button
-// configNext.addEventListener("click", () => {
-//   categoryDiv.style.display = "none";
-//   displayContainer.style.display = "block";
-//   initial();
-// });
 
 //hide quiz and display start screen
 window.onload = () => {
