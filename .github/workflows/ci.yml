@@ -66,6 +66,12 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run generate:ai
 
+      - name: Save generated questions
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-generated-questions
+          path: data/ai-questions.json
+
       - name: Run evaluation
         run: npm run evaluate:ai
 
