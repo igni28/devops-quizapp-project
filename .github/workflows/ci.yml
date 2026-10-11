@@ -23,7 +23,11 @@ jobs:
       
       - run: npm ci
 
-      - run: npm run check
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Check JS syntax
+        run: npm run check
 
       - name: Run unit tests
         run: npm test
